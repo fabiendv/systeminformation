@@ -107,13 +107,23 @@
                   </tr>
                   <tr>
                     <td></td>
+                    <td>designedcapacity</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>designed capacity of battery (mWh)</td>
+                  </tr>
+                  <tr>
+                    <td></td>
                     <td>maxcapacity</td>
                     <td>X</td>
                     <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>max capacity of battery</td>
+                    <td>max capacity of battery (mWh)</td>
                   </tr>
                   <tr>
                     <td></td>
@@ -123,7 +133,27 @@
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>current capacity of battery</td>
+                    <td>current capacity of battery (mWh)</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>capacityUnit</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>capacity unit (mWh if possible)</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>voltage</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>current voltage of battery (V)</td>
                   </tr>
                   <tr>
                     <td></td>
@@ -195,6 +225,31 @@
                     <td></td>
                     <td>battery serial</td>
                   </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.battery().then(data => console.log(data));</code></pre class="example">
+                      <pre class="example">
+{
+  hasbattery: true,
+  cyclecount: 35,
+  ischarging: false,
+  designedcapacity: 64958,
+  maxcapacity: 65865,
+  currentcapacity: 64856,
+  voltage: 12.767,
+  capacityUnit: 'mWh',
+  percent: 100,
+  timeremaining: 551,
+  acconnected: false,
+  type: 'Li-ion',
+  model: '',
+  manufacturer: 'Apple',
+  serial: 'F9Y19860Y9AH9XBAX'
+}</pre>
+                  </tr>
                 </tbody>
               </table>
               <h2>Known issues</h2>
@@ -232,7 +287,7 @@
         </div>
         <div class="col-lg-4 col-12">
           <ul class="list-unstyled">
-            <li><a href="https://www.plus-innovations.com">&copy; 2019 Sebastian Hildebrandt, +innovations</a></li>
+            <li><a href="https://www.plus-innovations.com">&copy; 2020 Sebastian Hildebrandt, +innovations</a></li>
             <li><a href="copyright.html">Copyright &amp; License</a></li>
             <li><a href="trademarks.html">Trademarks</a></li>
             <li><a href="https://github.com/sebhildebrandt/systeminformation/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT license" /></a></li>

@@ -46,23 +46,26 @@
               <h4>New Functions</h4>
               <ul>
                 <li><span class="code">chassis()</span> chassis information</li>
+                <li><span class="code">vboxInfo()</span> detailed virtualBox VM information</li>
+                <li><span class="code">wifiNetworks()</span> detailed information about available wifi networks</li>
               </ul>
               <h4>Breaking Changes</h4>
               <ul>
-                <li><span class="code">networkStats()</span>: will provide an **array** of stats for all given interfaces. In previous versions only one interface was provided as a parameter. Pass '*' for all interfaces</li>
+                <li><span class="code">networkStats()</span>: will provide an <strong>array</strong> of stats for all given interfaces. In previous versions only one interface was provided as a parameter. Pass '*' for all interfaces</li>
                 <li><span class="code">networkStats()</span>: <span class="code">rx</span> and <span class="code">tx</span> changed to <span class="code">rx_bytes</span> and <span class="code">tx_bytes</span></li>
-                <li><span class="code">dockerContainerStats()</span> will provide an **array** of stats for all given docker containers. In previous versions only one interface was provided as a parameter. Pass '*' for all docker containers</li>
+                <li><span class="code">dockerContainerStats()</span> will provide an <strong>array</strong> of stats for all given docker containers. In previous versions only one interface was provided as a parameter. Pass '*' for all docker containers</li>
               </ul>
               <h4>Other Changes</h4>
               <ul>
                 <li><span class="code">system()</span>: optimized system detection (e.g. new Raspberry Pi models, ...)</li>
                 <li><span class="code">system(), bios(), baseboard()</span>: information also as non-root (linux)</li>
+                <li><span class="code">graphics()</span>: added pip, pip3, virtualBox, </li>
                 <li><span class="code">versions()</span>: better controller and display detection, fixes</li>
                 <li><span class="code">networkInterfaces()</span>: optimization, fixes</li>
                 <li><span class="code">networkStats()</span> added <span class="code">operstate</span>, <span class="code">type</span>, <span class="code">duplex</span>, <span class="code">mtu</span>, <span class="code">speed</span>, <span class="code">carrierChanges</span></li>
                 <li>added TypeScript definitions </li>
               </ul>
-              <p>Be aware**, that the new version 4.x is **NOT fully backward compatible** to version 3.x ...</p>
+              <p><strong>Be aware</strong>, that the new version 4.x is <strong>NOT fully backward compatible</strong> to version 3.x ...</p>
 
               <h3>Major (breaking) Changes - Version 3</h3>
               <ul>
@@ -80,6 +83,642 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <tr>
+                    <th scope="row">4.27.3</th>
+                    <td>2020-08-26</td>
+                    <td>updated typescript typings</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.27.2</th>
+                    <td>2020-08-26</td>
+                    <td>fixed issue breaking node v4 compatibility</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.27.1</th>
+                    <td>2020-08-25</td>
+                    <td><span class="code">networkStats()</span> fixed packages dropped (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.27.0</th>
+                    <td>2020-08-24</td>
+                    <td><span class="code">observe()</span> added function to observe/watch system parameters</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.12</th>
+                    <td>2020-08-21</td>
+                    <td><span class="code">versions()</span> fixed issue windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.11</th>
+                    <td>2020-08-20</td>
+                    <td><span class="code">cpuTemperature()</span> fixed issue windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.10</th>
+                    <td>2020-07-16</td>
+                    <td><span class="code">networkStats()</span> fixed issue blocking windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.9</th>
+                    <td>2020-06-06</td>
+                    <td><span class="code">networkStats()</span> fixed comparison issue windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.8</th>
+                    <td>2020-06-06</td>
+                    <td><span class="code">networkInterfaces()</span> fixed caching</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.7</th>
+                    <td>2020-06-06</td>
+                    <td><span class="code">cpuTemperature()</span> fixed raspberry pi sensors issue</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.6</th>
+                    <td>2020-06-03</td>
+                    <td><span class="code">diskLayout()</span> fixed issue</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.5</th>
+                    <td>2020-05-27</td>
+                    <td><span class="code">cpuTemperature()</span> optimizes scanning AMD linux sensors</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.4</th>
+                    <td>2020-05-21</td>
+                    <td><span class="code">cpuTemperature()</span> fix (BSD), code cleanup</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.3</th>
+                    <td>2020-05-20</td>
+                    <td>Updated documentation</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.2</th>
+                    <td>2020-05-19</td>
+                    <td><span class="code">processes()</span> memory leak fix, security issue fix</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.1</th>
+                    <td>2020-05-13</td>
+                    <td>code cleanup </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.26.0</th>
+                    <td>2020-05-12</td>
+                    <td><span class="code">diskLayout()</span> added full smart data (where supported) </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.25.2</th>
+                    <td>2020-05-12</td>
+                    <td><span class="code">getDynamicData()</span> added wifiNetworks() </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.25.1</th>
+                    <td>2020-05-07</td>
+                    <td><span class="code">get()</span> minor bounds test fix, updated docs </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.25.0</th>
+                    <td>2020-05-07</td>
+                    <td><span class="code">get()</span> added function to get partial system info </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.24.2</th>
+                    <td>2020-05-06</td>
+                    <td><span class="code">cpu()</span> fix BSD, <span class="code">networkStats()</span> fix BSD </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.24.1</th>
+                    <td>2020-05-03</td>
+                    <td><span class="code">processes()</span> fix parsing command and params (linux, macOS) </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.24.0</th>
+                    <td>2020-05-01</td>
+                    <td><span class="code">networkInterfaces()</span> added netmask ip4 and ip6</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.10</th>
+                    <td>2020-05-01</td>
+                    <td><span class="code">cpuTemperature()</span> optimized parsing linux</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.9</th>
+                    <td>2020-04-29</td>
+                    <td><span class="code">currentLoad()</span> workarround for no os.cpus info</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.8</th>
+                    <td>2020-04-26</td>
+                    <td><span class="code">getMacAddresses()</span> fix added try catch</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.7</th>
+                    <td>2020-04-26</td>
+                    <td><span class="code">getCpuCurrentSpeedSync()</span> workarround fix</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.6</th>
+                    <td>2020-04-25</td>
+                    <td><span class="code">networkGatewayDefault()</span> bugfix no interfaces</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.5</th>
+                    <td>2020-20-04</td>
+                    <td>updated docs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.4</th>
+                    <td>2020-04-20</td>
+                    <td><span class="code">users()</span> optimized parseDateTime function</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.3</th>
+                    <td>2020-04-09</td>
+                    <td>refactored to avoid <span class="code">cat</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.2</th>
+                    <td>2020-04-08</td>
+                    <td><span class="code">cpu()</span> fixed getting base speed Ryzen CPUs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.1</th>
+                    <td>2020-03-11</td>
+                    <td><span class="code">diskLayout()</span> optimized detection (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.23.0</th>
+                    <td>2020-03-08</td>
+                    <td><span class="code">versions()</span> added param to specify which program/lib versions to detect</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.22.7</th>
+                    <td>2020-03-08</td>
+                    <td><span class="code">diskLayout()</span> fixed detection (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.22.6</th>
+                    <td>2020-03-08</td>
+                    <td><span class="code">network()</span> fixed DHCP detection (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.22.5</th>
+                    <td>2020-03-04</td>
+                    <td><span class="code">graphics()</span> fixed vram (macOS)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.22.4</th>
+                    <td>2020-03-01</td>
+                    <td><span class="code">versions()</span> added dotnet, fix typings</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.22.3</th>
+                    <td>2020-02-20</td>
+                    <td><span class="code">memLayout()</span> code cleanup</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.22.2</th>
+                    <td>2020-02-19</td>
+                    <td><span class="code">memLayout()</span> raspberry PI mem voltage fix</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.22.1</th>
+                    <td>2020-02-17</td>
+                    <td><span class="code">memLayout()</span> raspberry PI support</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.22.0</th>
+                    <td>2020-02-17</td>
+                    <td><span class="code">services()</span> added pids (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.21.3</th>
+                    <td>2020-02-16</td>
+                    <td><span class="code">versions()</span> fixed versions mysql (macOS)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.21.2</th>
+                    <td>2020-02-11</td>
+                    <td><span class="code">networkConnections()</span> fixed linux (debian) issue</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.21.1</th>
+                    <td>2020-01-31</td>
+                    <td><span class="code">networkGatewayDefault()</span> fixed windows 7 issue</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.21.0</th>
+                    <td>2020-01-27</td>
+                    <td>added <span class="code">npx</span> compatibility</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.20.1</th>
+                    <td>2020-01-26</td>
+                    <td><span class="code">battery()</span> code refactoring, cleanup, updated docs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.20.0</th>
+                    <td>2020-01-25</td>
+                    <td><span class="code">battery()</span> added designcapacity, voltage, unit</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.19.4</th>
+                    <td>2020-01-24</td>
+                    <td><span class="code">mem()</span> prevent log messages</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.19.3</th>
+                    <td>2020-01-24</td>
+                    <td><span class="code">memLayout()</span> bank info fix macOS</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.19.2</th>
+                    <td>2020-01-19</td>
+                    <td><span class="code">cpu()</span> multi-processor fix windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.19.1</th>
+                    <td>2020-01-14</td>
+                    <td><span class="code">osInfo()</span> uefi fix windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.19.0</th>
+                    <td>2020-01-12</td>
+                    <td><span class="code">osInfo()</span> uefi (OS uses UEFI on startup)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.18.3</th>
+                    <td>2020-01-10</td>
+                    <td><span class="code">fsSize()</span> fix excluding loop/snap devices</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.18.2</th>
+                    <td>2020-01-10</td>
+                    <td><span class="code">memLayout()</span> fix memsize linux (modules >= 32 GB)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.18.1</th>
+                    <td>2020-01-07</td>
+                    <td>updated docs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.18.0</th>
+                    <td>2020-01-07</td>
+                    <td><span class="code">networkInterfaces()</span> added dhcp for mac OS, added dhcp linux fallback</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.17.3</th>
+                    <td>2020-01-05</td>
+                    <td>code cleanup</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.17.2</th>
+                    <td>2020-01-05</td>
+                    <td><span class="code">cpu().speed</span> AMD base frequency and fix (0.00)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.17.1</th>
+                    <td>2020-01-04</td>
+                    <td><span class="code">fsSize()</span> alpine linux support</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.17.0</th>
+                    <td>2020-01-04</td>
+                    <td><span class="code">networkInterfaces()</span> added dhcp, dnsSuffix, ieee8021xAuth, ieee8021xState</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.16.1</th>
+                    <td>2020-01-01</td>
+                    <td><span class="code">networkInterfaces()</span> bug fix (mac OS)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.16.0</th>
+                    <td>2019-11-27</td>
+                    <td><span class="code">networkGatewayDefault()</span> added</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.15.3</th>
+                    <td>2019-11-10</td>
+                    <td><span class="code">type definitions</span> and docs update</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.15.2</th>
+                    <td>2019-11-10</td>
+                    <td><span class="code">mem()</span> improved calculation linux</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.15.1</th>
+                    <td>2019-11-10</td>
+                    <td><span class="code">diskLayout()</span> added support for older lsblk versions (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.15.0</th>
+                    <td>2019-11-10</td>
+                    <td><span class="code">cpu()</span> added governor (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.17</th>
+                    <td>2019-10-22</td>
+                    <td><span class="code">graphics()</span> improved display detection (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.16</th>
+                    <td>2019-10-19</td>
+                    <td><span class="code">graphics()</span> improved display detection (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.15</th>
+                    <td>2019-10-18</td>
+                    <td><span class="code">graphics()</span> fallback display detection (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.14</th>
+                    <td>2019-10-18</td>
+                    <td><span class="code">powershell()</span> fixed error handling (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.13</th>
+                    <td>2019-10-15</td>
+                    <td><span class="code">networkConnections()</span> fixed parsing (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.12</th>
+                    <td>2019-10-14</td>
+                    <td><span class="code">getCpu()</span> fixed multi socket detection (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.11</th>
+                    <td>2019-10-01</td>
+                    <td><span class="code">type definitions</span> bug dockerInfo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.10</th>
+                    <td>2019-10-01</td>
+                    <td><span class="code">type definitions</span> bug fix memLayout</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.9</th>
+                    <td>2019-10-01</td>
+                    <td><span class="code">processLoad()</span> fix windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.8</th>
+                    <td>2019-08-23</td>
+                    <td><span class="code">parseDateTime()</span> fix coding error</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.7</th>
+                    <td>2019-08-22</td>
+                    <td><span class="code">battery()</span> windows acconnected improvement</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.6</th>
+                    <td>2019-08-22</td>
+                    <td><span class="code">users()</span> improved date time parsing</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.5</th>
+                    <td>2019-08-22</td>
+                    <td><span class="code">fsSize()</span> fix windows size as number</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.4</th>
+                    <td>2019-07-20</td>
+                    <td><span class="code">versions()</span> fix pip, pip3</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.3</th>
+                    <td>2019-07-09</td>
+                    <td><span class="code">system()</span> sku fix windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.2</th>
+                    <td>2019-07-07</td>
+                    <td><span class="code">networkConnections()</span> pid linux fix NAN</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.1</th>
+                    <td>2019-07-04</td>
+                    <td><span class="code">graphics()</span> added display position windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.14.0</th>
+                    <td>2019-07-03</td>
+                    <td><span class="code">processes()</span> added process params and path</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.13.2</th>
+                    <td>2019-07-02</td>
+                    <td><span class="code">versions()</span> fix getting all versions</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.13.1</th>
+                    <td>2019-07-01</td>
+                    <td><span class="code">versions()</span> gcc fix mac OS</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.13.0</th>
+                    <td>2019-07-01</td>
+                    <td><span class="code">networkConnections()</span> added PID, process</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.12.2</th>
+                    <td>2019-06-24</td>
+                    <td><span class="code">system()</span> added Raspberry PI 4 detection</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.12.1</th>
+                    <td>2019-06-24</td>
+                    <td><span class="code">networkInterface()</span> virtual interfaces mac OS<br>
+                      <span class="code">networkInterfaceDefault()</span> optimization windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.12.0</th>
+                    <td>2019-06-21</td>
+                    <td><span class="code">networkInterface()</span> added property virtual</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.11.6</th>
+                    <td>2019-06-19</td>
+                    <td><span class="code">util</span> bug fix</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.11.5</th>
+                    <td>2019-06-19</td>
+                    <td><span class="code">dockerAll()</span> bug fix</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.11.4</th>
+                    <td>2019-06-17</td>
+                    <td><span class="code">type definitions</span> bug fix</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.11.3</th>
+                    <td>2019-06-16</td>
+                    <td><span class="code">graphics()</span> optimization windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.11.2</th>
+                    <td>2019-06-16</td>
+                    <td><span class="code">wifiNetworks()</span> bug fixes</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.11.1</th>
+                    <td>2019-06-15</td>
+                    <td>updated docs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.11.0</th>
+                    <td>2019-06-14</td>
+                    <td><span class="code">wifiNetworks()</span> added available wifi networks</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.10.0</th>
+                    <td>2019-06-14</td>
+                    <td><span class="code">graphics()</span> rewrite windows, added featues</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.9.2</th>
+                    <td>2019-06-12</td>
+                    <td><span class="code">type definitions</span> bug fix</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.9.1</th>
+                    <td>2019-06-11</td>
+                    <td><span class="code">networkStats()</span> bugfix windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.9.0</th>
+                    <td>2019-06-03</td>
+                    <td><span class="code">graphics()</span> added vendor, refresh rate, current resolution</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.8.4</th>
+                    <td>2019-06-03</td>
+                    <td><span class="code">vboxInfo()</span> fixed call parameters</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.8.3</th>
+                    <td>2019-05-31</td>
+                    <td><span class="code">vboxInfo()</span> added stoppedSince, started, stopped</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.8.2</th>
+                    <td>2019-05-31</td>
+                    <td><span class="code">dockerInfo()</span> changed property naming style</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.8.1</th>
+                    <td>2019-05-31</td>
+                    <td>updated docs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.8.0</th>
+                    <td>2019-05-31</td>
+                    <td><span class="code">vboxInfo()</span> added virtualbox detailed VM info</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.7.3</th>
+                    <td>2019-05-30</td>
+                    <td>updated typescript typings</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.7.2</th>
+                    <td>2019-05-30</td>
+                    <td><span class="code">versions()</span> added virtualbox</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.7.1</th>
+                    <td>2019-05-29</td>
+                    <td><span class="code">memLayout()</span> fix mac OS mojave</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.7.0</th>
+                    <td>2019-05-29</td>
+                    <td>partial NetBSD support</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.6.1</th>
+                    <td>2019-05-29</td>
+                    <td><span class="code">wmic</span> path fix - windows</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.6.0</th>
+                    <td>2019-05-27</td>
+                    <td><span class="code">dockerInfo()</span> added dockerInfo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.5.1</th>
+                    <td>2019-05-17</td>
+                    <td>updated docs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.5.0</th>
+                    <td>2019-05-17</td>
+                    <td><span class="code">fsOpenFiles()</span> added open file descriptor count</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.4.1</th>
+                    <td>2019-05-11</td>
+                    <td>updated docs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.4.0</th>
+                    <td>2019-05-11</td>
+                    <td><span class="code">dockerContainers()</span> added started, finished time</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.3.0</th>
+                    <td>2019-05-09</td>
+                    <td><span class="code">dockerContainers() dockerStats()</span> added restartCount</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.2.1</th>
+                    <td>2019-05-09</td>
+                    <td><span class="code">networkInterfaceDefault()</span> time delay fix (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.2.0</th>
+                    <td>2019-05-09</td>
+                    <td><span class="code">osInfo()</span> extended service pack version (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.1.8</th>
+                    <td>2019-05-09</td>
+                    <td><span class="code">graphics()</span> resolve on error (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.1.7</th>
+                    <td>2019-05-09</td>
+                    <td><span class="code">users()</span> parsing fix (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.1.6</th>
+                    <td>2019-04-24</td>
+                    <td><span class="code">memory()</span> swap used fix (linux)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.1.5</th>
+                    <td>2019-04-19</td>
+                    <td>refactored <span class="code">wmic</span> calls to work also on Windows XP</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.1.4</th>
+                    <td>2019-03-26</td>
+                    <td><span class="code">networkInterfaces()</span> speed bug (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.1.3</th>
+                    <td>2019-03-24</td>
+                    <td>wmic path detection (windows)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4.1.2</th>
+                    <td>2019-03-23</td>
+                    <td>updated docs</td>
+                  </tr>
                   <tr>
                     <th scope="row">4.1.1</th>
                     <td>2019-03-13</td>
@@ -1175,7 +1814,7 @@
         </div>
         <div class="col-lg-4 col-12">
           <ul class="list-unstyled">
-            <li><a href="https://www.plus-innovations.com">&copy; 2019 Sebastian Hildebrandt, +innovations</a></li>
+            <li><a href="https://www.plus-innovations.com">&copy; 2020 Sebastian Hildebrandt, +innovations</a></li>
             <li><a href="copyright.html">Copyright &amp; License</a></li>
             <li><a href="trademarks.html">Trademarks</a></li>
             <li><a href="https://github.com/sebhildebrandt/systeminformation/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT license" /></a></li>

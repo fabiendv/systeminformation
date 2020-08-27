@@ -417,6 +417,10 @@ h1, h2, h3, h4 {
   }
 }
 
+.sectionheader .npmicons {
+  text-align: center;
+}
+
 .sectionheader .text {
   text-align: center;
   padding-top: 10px;
@@ -438,7 +442,7 @@ h1, h2, h3, h4 {
   margin: 0 0 10px 0;
 }
 
-.index .text, .index .subtitle, .index .title, .index .title-small {
+.index .text, .index .subtitle, .index .title, .index .title-small, .index .npmicons {
   text-align: center;
 }
 
@@ -451,7 +455,7 @@ h1, h2, h3, h4 {
   color: #567adf;
 }
 
-.left .text, .left .subtitle, .left .title, .left .title-small {
+.left .text, .left .subtitle, .left .title, .left .title-small .npmicons {
   text-align: left;
 }
 
@@ -517,6 +521,16 @@ ul {
   color: #000;
 }
 
+.menu .title a {
+  width: 100%;
+  color: #000;
+  text-decoration: none;
+}
+
+.menu .title a:hover {
+  color: #567adf;
+}
+
 .menu hr {
   margin: 5px 0;
 }
@@ -570,6 +584,27 @@ pre {
   background-color: #eee;
   width: 100%;
   text-align: left;
+}
+
+.example td:first-child {
+  background-color: #fff !important;
+}
+
+.example td:last-child {
+  background-color: #f8faff !important;
+}
+
+.example h5 {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.example pre {
+  background-color: unset;
+}
+
+.example pre .js {
+  background-color: #f0f0f4;
 }
 
 footer {

@@ -107,6 +107,16 @@
                   </tr>
                   <tr>
                     <td></td>
+                    <td>[0].ip4subnet</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>ip4 subnet mask</td>
+                  </tr>
+                  <tr>
+                    <td></td>
                     <td>[0].ip6</td>
                     <td>X</td>
                     <td>X</td>
@@ -114,6 +124,16 @@
                     <td>X</td>
                     <td>X</td>
                     <td>ip6 address</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>[0].ip6subnet</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>ip6 subnet mask</td>
                   </tr>
                   <tr>
                     <td></td>
@@ -137,9 +157,19 @@
                   </tr>
                   <tr>
                     <td></td>
+                    <td>[0].virtual</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>true if virtual interface</td>
+                  </tr>
+                  <tr>
+                    <td></td>
                     <td>[0].operstate</td>
                     <td>X</td>
-                    <td>X</td>
+                    <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
@@ -149,7 +179,7 @@
                     <td></td>
                     <td>[0].type</td>
                     <td>X</td>
-                    <td>X</td>
+                    <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
@@ -159,9 +189,9 @@
                     <td></td>
                     <td>[0].duplex</td>
                     <td>X</td>
+                    <td></td>
                     <td>X</td>
-                    <td>X</td>
-                    <td>X</td>
+                    <td></td>
                     <td></td>
                     <td>duplex (full/half)</td>
                   </tr>
@@ -169,9 +199,9 @@
                     <td></td>
                     <td>[0].mtu</td>
                     <td>X</td>
+                    <td></td>
                     <td>X</td>
-                    <td>X</td>
-                    <td>X</td>
+                    <td></td>
                     <td></td>
                     <td>MUT maximum transmission unit</td>
                   </tr>
@@ -179,7 +209,7 @@
                     <td></td>
                     <td>[0].speed</td>
                     <td>X</td>
-                    <td>X</td>
+                    <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
@@ -187,13 +217,105 @@
                   </tr>
                   <tr>
                     <td></td>
-                    <td>[0].carrierChanges</td>
+                    <td>[0].dhcp</td>
                     <td>X</td>
-                    <td>X</td>
+                    <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
+                    <td>IP address obtained by DHCP</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>[0].dnsSuffix</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                    <td>X</td>
+                    <td></td>
+                    <td>DNS suffix</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>[0].ieee8021xAuth</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                    <td>X</td>
+                    <td></td>
+                    <td>IEEE 802.1x Auth</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>[0].ieee8021xState</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>IEEE 802.1x State</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>[0].carrierChanges</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td># changes up/down</td>
+                  </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.networkInterfaces().then(data => console.log(data));</code></pre class="example">
+                      <pre class="example">
+[
+  {
+    iface: 'lo0',
+    ifaceName: 'lo0',
+    ip4: '127.0.0.1',
+    ip4subnet: '255.0.0.0',
+    ip6: '::1',
+    ip6subnet: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+    mac: '',
+    internal: true,
+    virtual: false,
+    operstate: 'down',
+    type: 'wired',
+    duplex: 'full',
+    mtu: 16384,
+    speed: -1,
+    dhcp: false,
+    dnsSuffix: '',
+    ieee8021xAuth: '',
+    ieee8021xState: '',
+    carrierChanges: 0
+  },
+  {
+    iface: 'en0',
+    ifaceName: 'en0',
+    ip4: '192.168.0.27',
+    ip4subnet: '255.255.255.0',
+    ip6: 'fe80::134a:1e43:abc5:d413',
+    ip6subnet: 'ffff:ffff:ffff:ffff::',
+    mac: 'xx:xx:xx:xx:xx:xx',
+    internal: false,
+    virtual: false,
+    operstate: 'up',
+    type: 'wired',
+    duplex: 'full',
+    mtu: 1500,
+    speed: 1000,
+    dhcp: true,
+    dnsSuffix: '',
+    ieee8021xAuth: '',
+    ieee8021xState: '',
+    carrierChanges: 0
+  }, ...
+]</pre>
                   </tr>
                   <tr>
                     <td>si.networkInterfaceDefault(cb)</td>
@@ -204,6 +326,34 @@
                     <td>X</td>
                     <td>X</td>
                     <td>get name of default network interface</td>
+                  </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.networkInterfaceDefault().then(data => console.log(data));</code></pre class="example">
+                      <pre class="example">
+eth0</pre>
+                  </tr>
+                  <tr>
+                    <td>si.networkGatewayDefault(cb)</td>
+                    <td>: string</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>get default network gateway</td>
+                  </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.networkGatewayDefault().then(data => console.log(data));</code></pre class="example">
+                      <pre class="example">
+192.168.0.1</pre>
                   </tr>
                   <tr>
                     <td>si.networkStats(iface,cb)</td>
@@ -325,6 +475,48 @@
                     <td></td>
                     <td>interval length (for per second values)</td>
                   </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+setInterval(function() {
+  si.networkStats().then(data => {
+    console.log(data);
+  })
+}, 1000)</code></pre class="example">
+                      <pre class="example">
+[
+  {                                 // first call
+    iface: 'en0',
+    operstate: 'up',
+    rx_bytes: 1752866207,
+    rx_dropped: 0,
+    rx_errors: 0,
+    tx_bytes: 180934681,
+    tx_dropped: 0,
+    tx_errors: 0,
+    rx_sec: -1,
+    tx_sec: -1,
+    ms: 0
+  }
+]
+[
+  {                                 // second call
+    iface: 'en0',
+    operstate: 'up',
+    rx_bytes: 1752866822,
+    rx_dropped: 0,
+    rx_errors: 0,
+    tx_bytes: 180939820,
+    tx_dropped: 0,
+    tx_errors: 0,
+    rx_sec: 624.3654822335026,
+    tx_sec: 5217.258883248731,
+    ms: 985
+  }
+]...</pre>
+                  </tr>
                   <tr>
                     <td>si.networkConnections(cb)</td>
                     <td>[{...}]</td>
@@ -395,6 +587,57 @@
                     <td></td>
                     <td>like ESTABLISHED, TIME_WAIT, ...</td>
                   </tr>
+                  <tr>
+                    <td></td>
+                    <td>[0].pid</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>process ID</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>[0].process</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>process name</td>
+                  </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.networkConnections().then(data => console.log(data));</code></pre class="example">
+                      <pre class="example">
+[
+  {
+    protocol: 'tcp4',
+    localaddress: '192.168.0.27',
+    localport: '55788',
+    peeraddress: '163.128.xxx.xxx',
+    peerport: '443',
+    state: 'CLOSE_WAIT',
+    pid: 702,
+    process: ''
+  },
+  {
+    protocol: 'tcp4',
+    localaddress: '192.168.0.27',
+    localport: '55761',
+    peeraddress: '148.253.xxx.xxx',
+    peerport: '22',
+    state: 'ESTABLISHED',
+    pid: 7267,
+    process: ''
+  },
+  ...
+]</pre>
+                  </tr>
                 </tbody>
               </table>
               <h2>Site availability, Internet Latency</h2>
@@ -462,6 +705,20 @@
                     <td>X</td>
                     <td>response time in ms</td>
                   </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.inetChecksite('google.com').then(data => console.log(data));</code></pre class="example">
+                      <pre class="example">
+{
+  url: 'google.com',
+  ok: true,
+  status: 301,
+  ms: 82
+}</pre>
+                  </tr>
                   <tr>
                     <td>si.inetLatency(host, cb)</td>
                     <td>: number</td>
@@ -471,6 +728,20 @@
                     <td>X</td>
                     <td>X</td>
                     <td>response-time (ms) to external resource<br />host parameter is optional (default 8.8.8.8)</td>
+                  </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.inetLatency().then(data => console.log(data));</code></pre class="example">
+                      <pre class="example">
+13.484</pre>
+                      <pre><code class="js">// Example with given host IP address
+const si = require('systeminformation');
+si.inetLatency('216.58.207.142').then(data => console.log(data));</code></pre class="example">
+                      <pre class="example">
+11.291</pre>
                   </tr>
                 </tbody>
               </table>
@@ -521,7 +792,7 @@ setInterval(function() {
         </div>
         <div class="col-lg-4 col-12">
           <ul class="list-unstyled">
-            <li><a href="https://www.plus-innovations.com">&copy; 2019 Sebastian Hildebrandt, +innovations</a></li>
+            <li><a href="https://www.plus-innovations.com">&copy; 2020 Sebastian Hildebrandt, +innovations</a></li>
             <li><a href="copyright.html">Copyright &amp; License</a></li>
             <li><a href="trademarks.html">Trademarks</a></li>
             <li><a href="https://github.com/sebhildebrandt/systeminformation/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT license" /></a></li>

@@ -44,12 +44,12 @@
       <div class="col-12 col-md-8 col-lg-9 col-xl-10 content">
         <div class="row">
           <div class="col-12 sectionheader">
-            <div class="title">Graphics</div>
+            <div class="title">Wifi</div>
             <div class="text">
-              <p>In this section you will learn how to get information about installed graphics conrollers and connected displays:</p>
+              <p>In this section you will learn how to get detailed information about available wifi networks:</p>
               <p>For function reference and examples we assume, that we imported <span class="code">systeminformation</span> as follows:</p>
               <pre><code class="js">const si = require('systeminformation');</code></pre>
-              <h2>Graphics Controllers, Displays</h2>
+              <h2>Wifi Networks</h2>
               <p>All functions in this section return a promise or can be called with a callback function (parameter <span class="code">cb</span> in the function reference)</p>
               <table class="table table-sm table-bordered table-striped">
                 <thead>
@@ -66,275 +66,154 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>si.graphics(cb)</td>
-                    <td>{...}</td>
-                    <td>X</td>
-                    <td></td>
+                    <td>si.wifiNetworks(cb)</td>
+                    <td>[{...}]</td>
                     <td>X</td>
                     <td>X</td>
-                    <td></td>
-                    <td>arrays of graphics controllers and displays</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>array of available wifi networks</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>controllers[]</td>
+                    <td>[0].ssid</td>
                     <td>X</td>
                     <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>graphics controllers array</td>
+                    <td>Wifi network SSID</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>...[0].model</td>
+                    <td>[0].bssid</td>
                     <td>X</td>
                     <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>graphics controller model</td>
+                    <td>BSSID (mac)</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>...[0].vendor</td>
+                    <td>[0].mode</td>
                     <td>X</td>
                     <td></td>
-                    <td>X</td>
-                    <td>X</td>
                     <td></td>
-                    <td>e.g. ATI</td>
+                    <td></td>
+                    <td></td>
+                    <td>mode</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>...[0].bus</td>
+                    <td>[0].channel</td>
                     <td>X</td>
                     <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>on which bus (e.g. PCIe)</td>
+                    <td>channel</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>...[0].vram</td>
+                    <td>[0].frequency</td>
                     <td>X</td>
                     <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>VRAM size (in MB)</td>
+                    <td>frequengy in MHz</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>...[0].vramDynamic</td>
+                    <td>[0].signalLevel</td>
                     <td>X</td>
                     <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>true if dynamicly allocated ram</td>
+                    <td>signal level in dB</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>displays[]</td>
+                    <td>[0].quality</td>
                     <td>X</td>
                     <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>monitor/display array</td>
+                    <td>quaility in %</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>...[0].vendor</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>[0].security</td>
                     <td>X</td>
                     <td></td>
-                    <td>monitor/display vendor</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td></td>
+                    <td>array e.g. WPA, WPA-2</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>...[0].model</td>
+                    <td>[0].wpaFlags</td>
                     <td>X</td>
                     <td></td>
                     <td>X</td>
                     <td>X</td>
                     <td></td>
-                    <td>monitor/display model</td>
+                    <td>array of WPA flags</td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td>...[0].main</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>true if main monitor</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].builtin</td>
-                    <td>X</td>
-                    <td></td>
+                    <td>[0].rsnFlags</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
-                    <td>true if built in monitor</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].connection</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>e.g. DisplayPort, HDMI</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].sizex</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>size in mm horizontal</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].sizey</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>size in mm vertical</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].pixeldepth</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>color depth in bits</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].resolutionx</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>pixel horizontal</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].resolutiony</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>pixel vertical</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].currentResX</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>current pixel horizontal</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].currentResY</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>current pixel vertical</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].positionX</td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td>X</td>
-                    <td></td>
-                    <td>screen position X</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].positionY</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>X</td>
-                    <td></td>
-                    <td>screen position Y</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>...[0].currentRefreshRate</td>
-                    <td>X</td>
-                    <td></td>
-                    <td></td>
-                    <td>X</td>
-                    <td></td>
-                    <td>current screen refresh rate</td>
+                    <td>array of RDN flags
                   </tr>
                   <tr class="example">
                     <td></td>
                     <td colspan="7">
                       <h5>Example</h5>
                       <pre><code class="js">const si = require('systeminformation');
-si.graphics().then(data => console.log(data));</code></pre class="example">
+si.wifiNetworks().then(data => console.log(data));</code></pre class="example">
                       <pre class="example">
-{
-  controllers: [
-    {
-      vendor: 'Intel',
-      model: 'Intel Iris Plus Graphics 655',
-      bus: 'Built-In',
-      vram: 1536,
-      vramDynamic: true
-    }
-  ],
-  displays: [
-    {
-      vendor: '',
-      model: 'Color LCD',
-      main: true,
-      builtin: false,
-      connection: 'Internal',
-      sizex: -1,
-      sizey: -1,
-      pixeldepth: 24,
-      resolutionx: 2560,
-      resolutiony: 1600,
-      currentResX: 2560,
-      currentResY: 1600,
-      positionX: 0,
-      positionY: 0,
-      currentRefreshRate: -1
-    }
-  ]
-}</pre>
+[
+  {
+    ssid: 'INTERNAL-WIFI',
+    bssid: 'ab:01:14:4f:d3:82',
+    mode: '',
+    channel: 44,
+    frequency: 5220,
+    signalLevel: -68,
+    quality: 64,
+    security: [ 'WPA', 'WPA2' ],
+    wpaFlags: [ 'PSK/TKIP/TKIP', 'PSK/AES/TKIP' ],
+    rsnFlags: []
+  },
+  {
+    ssid: 'FREE Wifi',
+    bssid: 'aa:14:e5:16:97:f3',
+    mode: '',
+    channel: 44,
+    frequency: 5220,
+    signalLevel: -50,
+    quality: 100,
+    security: [ 'WPA', 'WPA2' ],
+    wpaFlags: [ 'PSK/TKIP/TKIP', 'PSK/AES/TKIP' ],
+    rsnFlags: []
+  },
+  ...
+]</pre>
                   </tr>
+
                 </tbody>
               </table>
+
             </div>
           </div>
         </div>

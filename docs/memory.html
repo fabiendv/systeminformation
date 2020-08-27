@@ -127,6 +127,36 @@
                   </tr>
                   <tr>
                     <td></td>
+                    <td>buffers</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>used by buffers</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>cached</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>used by cache</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>slab</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>used by slab</td>
+                  </tr>
+                  <tr>
+                    <td></td>
                     <td>available</td>
                     <td>X</td>
                     <td>X</td>
@@ -164,6 +194,29 @@
                     <td>X</td>
                     <td>X</td>
                     <td></td>
+                  </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.mem().then(data => console.log(data));</code></pre class="example">
+<pre class="example">
+{
+  total: 67092135936,
+  free: 65769291776,
+  used: 1322844160,
+  active: 1032495104,
+  available: 66059640832,
+  buffers: 63213568,
+  cached: 800124928,
+  slab: 268804096,
+  buffcache: 1132142592,
+  swaptotal: 8589930496,
+  swapused: 0,
+  swapfree: 8589930496
+}
+</pre>
                   </tr>
                   <tr>
                     <td>si.memLayout(cb)</td>
@@ -285,6 +338,43 @@
                     <td></td>
                     <td>voltage max</td>
                   </tr>
+                  <tr class="example">
+                    <td></td>
+                    <td colspan="7">
+                      <h5>Example</h5>
+                      <pre><code class="js">const si = require('systeminformation');
+si.memLayout().then(data => console.log(data));</code></pre class="example">
+<pre class="example">
+[
+  {
+    size: 34359738368,
+    bank: 'BANK 0',
+    type: 'DDR4',
+    clockSpeed: 2667,
+    formFactor: 'SODIMM',
+    manufacturer: '029E',
+    partNum: 'CMSX64.....',
+    serialNum: '00000000',
+    voltageConfigured: 1.2,
+    voltageMin: 1.2,
+    voltageMax: 1.2
+  },
+  {
+    size: 34359738368,
+    bank: 'BANK 2',
+    type: 'DDR4',
+    clockSpeed: 2667,
+    formFactor: 'SODIMM',
+    manufacturer: '029E',
+    partNum: 'CMSX64.....',
+    serialNum: '00000000',
+    voltageConfigured: 1.2,
+    voltageMin: 1.2,
+    voltageMax: 1.2
+  }
+]
+</pre>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -315,7 +405,7 @@
         </div>
         <div class="col-lg-4 col-12">
           <ul class="list-unstyled">
-            <li><a href="https://www.plus-innovations.com">&copy; 2019 Sebastian Hildebrandt, +innovations</a></li>
+            <li><a href="https://www.plus-innovations.com">&copy; 2020 Sebastian Hildebrandt, +innovations</a></li>
             <li><a href="copyright.html">Copyright &amp; License</a></li>
             <li><a href="trademarks.html">Trademarks</a></li>
             <li><a href="https://github.com/sebhildebrandt/systeminformation/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT license" /></a></li>

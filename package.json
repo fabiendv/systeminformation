@@ -1,11 +1,12 @@
 {
   "name": "systeminformation",
-  "version": "4.1.1",
+  "version": "4.27.3",
   "description": "Simple system and OS information library",
   "license": "MIT",
   "author": "Sebastian Hildebrandt <hildebrandt@plus-innovations.com> (https://plus-innovations.com)",
-  "homepage": "https://github.com/sebhildebrandt/systeminformation",
+  "homepage": "https://systeminformation.io",
   "main": "./lib/index.js",
+  "bin": "./lib/cli.js",
   "types": "./lib/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
@@ -28,6 +29,8 @@
     "osx",
     "windows",
     "freebsd",
+    "openbsd",
+    "netbsd",
     "cpu",
     "cpuload",
     "physical cores",
@@ -60,11 +63,20 @@
     "gpu",
     "display",
     "smart",
-    "disk layout"
+    "disk layout",
+    "wifi",
+    "wifinetworks",
+    "virtual box",
+    "virtualbox",
+    "vm"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/sebhildebrandt/systeminformation.git"
+  },
+  "funding": {
+    "type": "Buy me a coffee",
+    "url": "https://www.buymeacoffee.com/systeminfo"
   },
   "os": [
     "darwin",
@@ -72,6 +84,7 @@
     "win32",
     "freebsd",
     "openbsd",
+    "netbsd",
     "sunos"
   ],
   "engines": {

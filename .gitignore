@@ -60,9 +60,9 @@ npm*
 CVS
 .eslintrc.json
 package-lock.json
+yarn.lock
 
 test/
 dist/
 tsconfig.json
-tslint.json
 typings.d.ts
